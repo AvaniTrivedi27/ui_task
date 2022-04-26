@@ -1,0 +1,19 @@
+use students
+show dbs
+db.create\collection("stud1")
+db
+show collections
+db.stud1.insert({name:"atk",branch:"CE"})
+db.stud1.insertMany([{name:"atk",branch:"CE"},{name:"atk",branch:"CE"},{name:"atk",branch:"CE"}])
+db.stud1.upadate({name:"atk"},{$set:{branch:"id"})
+db.stud1.upadateOne({name:"atk"},{$set:{branch:"id"},{upsert:true})
+db.stud1.deleteOne({name:"abcd")
+db.stud1.delete({name:"abcd")
+db.stud1.deleteMany({})
+db.stud1.find({},{title:1,id:0}).limit(5).preety()
+db.stud1.find($and:[{status:"A"},{likes:{$gt:20}}]}) 
+db.stud1.find($or:[{status:"A"},{likes:{$gt:20}}]})
+db.stud1.aggregate([{$group:{_id:"title"}}])
+db.stud1.aggregate([{$match:{qty:{$gt:30}}},{_id:"$cat","Average":{$avg:"$qty"}}},
+			{$sort:{"Average":-1}},
+			{$limit:5}])
